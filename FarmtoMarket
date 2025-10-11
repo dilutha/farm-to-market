@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Buyer</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        primary: "#15931d",
+        "background-light": "#f6f8f6",
+        "background-dark": "#112112",
+      },
+      fontFamily: {
+        display: "Work Sans",
+      },
+      borderRadius: {
+        DEFAULT: "0.25rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        full: "9999px",
+      },
+    },
+  },
+}
+</script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?f  amily=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen">
+<aside class="w-64 flex-shrink-0 bg-background-light dark:bg-background-dark border-r border-primary/20 dark:border-primary/30 p-6 flex flex-col justify-between">
+<div>
+<div class="mb-8">
+<h1 class="text-xl font-bold text-black dark:text-white">Farm_to_Market</h1>
+<p class="text-sm text-primary">Buyer</p>
+</div>
+<nav class="flex flex-col space-y-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-black dark:text-white hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors" href="#">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="text-sm font-medium">Browse Crops</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-black dark:text-white hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-black dark:text-white hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-sm font-medium">Price Alerts</span>
+</a>
+</nav>
+</div>
+<nav class="flex flex-col space-y-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-black dark:text-white hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<header class="mb-8">
+<h2 class="text-3xl font-bold text-black dark:text-white">Dashboard</h2>
+<p class="text-primary/80 dark:text-primary/70">Welcome back! Here's a summary of your recent activity.</p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+<div class="bg-white dark:bg-background-dark shadow-md rounded-lg p-6">
+<h3 class="text-lg font-semibold text-black dark:text-white mb-3">Recent Orders</h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+<span class="text-sm font-medium text-black dark:text-white">Tomatoes (500 kg)</span>
+</div>
+<span class="text-sm text-primary/80 dark:text-primary/70">Pending</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+<span class="text-sm font-medium text-black dark:text-white">Rice (1000 kg)</span>
+</div>
+<span class="text-sm text-primary/80 dark:text-primary/70">Delivered</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+<span class="text-sm font-medium text-black dark:text-white">Mangoes (100 kg)</span>
+</div>
+<span class="text-sm text-primary/80 dark:text-primary/70">Shipped</span>
+</div>
+</div>
+<a class="text-primary font-semibold text-sm mt-4 inline-block hover:underline" href="#">View All Orders</a>
+</div>
+<div class="bg-white dark:bg-background-dark shadow-md rounded-lg p-6">
+<h3 class="text-lg font-semibold text-black dark:text-white mb-3">Price Alerts</h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+<span class="text-sm font-medium text-black dark:text-white">Onions</span>
+</div>
+<span class="text-sm text-red-500">-5%</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">trending_down</span>
+<span class="text-sm font-medium text-black dark:text-white">Potatoes</span>
+</div>
+<span class="text-sm text-green-500">+10%</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+<span class="text-sm font-medium text-black dark:text-white">Garlic</span>
+</div>
+<span class="text-sm text-red-500">-7%</span>
+</div>
+</div>
+<a class="text-primary font-semibold text-sm mt-4 inline-block hover:underline" href="#">Manage Alerts</a>
+</div>
+<div class="bg-white dark:bg-background-dark shadow-md rounded-lg p-6">
+<h3 class="text-lg font-semibold text-black dark:text-white mb-3">Popular Crops</h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">local_florist</span>
+<span class="text-sm font-medium text-black dark:text-white">Tomatoes</span>
+</div>
+<span class="text-sm text-primary/80 dark:text-primary/70">High Demand</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">local_florist</span>
+<span class="text-sm font-medium text-black dark:text-white">Cucumbers</span>
+</div>
+<span class="text-sm text-primary/80 dark:text-primary/70">Steady</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">local_florist</span>
+<span class="text-sm font-medium text-black dark:text-white">Green Beans</span>
+</div>
+<span class="text-sm text-primary/80 dark:text-primary/70">Increasing</span>
+</div>
+</div>
+<a class="text-primary font-semibold text-sm mt-4 inline-block hover:underline" href="#">Browse All Crops</a>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark shadow-md rounded-lg overflow-hidden p-6">
+<h3 class="text-xl font-bold text-black dark:text-white mb-6">Recent Activity</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-primary/10 dark:bg-primary/20">
+<tr>
+<th class="p-4 text-sm font-semibold text-black dark:text-white uppercase">Crop</th>
+<th class="p-4 text-sm font-semibold text-black dark:text-white uppercase">Variety</th>
+<th class="p-4 text-sm font-semibold text-black dark:text-white uppercase">Quantity</th>
+<th class="p-4 text-sm font-semibold text-black dark:text-white uppercase">Status</th>
+<th class="p-4 text-sm font-semibold text-black dark:text-white uppercase text-right">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-primary/20 dark:border-primary/30">
+<td class="p-4 text-sm font-medium text-black dark:text-white">Tomatoes</td>
+<td class="p-4 text-sm text-primary/80 dark:text-primary/70">Roma</td>
+<td class="p-4 text-sm text-primary/80 dark:text-primary/70">500 kg</td>
+<td class="p-4 text-sm text-yellow-500 font-semibold">Pending</td>
+<td class="p-4 text-right text-sm text-primary/80 dark:text-primary/70">2025-10-26</td>
+</tr>
+<tr class="border-b border-primary/20 dark:border-primary/30">
+<td class="p-4 text-sm font-medium text-black dark:text-white">Cucumbers</td>
+<td class="p-4 text-sm text-primary/80 dark:text-primary/70">English</td>
+<td class="p-4 text-sm text-primary/80 dark:text-primary/70">300 kg</td>
+<td class="p-4 text-sm text-green-600 font-semibold">Completed</td>
+<td class="p-4 text-right text-sm text-primary/80 dark:text-primary/70">2025-10-25</td>
+</tr>
+<tr class="border-b border-primary/20 dark:border-primary/30">
+<td class="p-4 text-sm font-medium text-black dark:text-white">Green Beans</td>
+<td class="p-4 text-sm text-primary/80 dark:text-primary/70">Stringless</td>
+<td class="p-4 text-sm text-primary/80 dark:text-primary/70">250 kg</td>
+<td class="p-4 text-sm text-red-600 font-semibold">Cancelled</td>
+<td class="p-4 text-right text-sm text-primary/80 dark:text-primary/70">2025-10-24</td>
+</tr>
+<tr class="border-b border-primary/20 dark:border-primary/30">
+<td class="p-4 text-sm font-medium text-black dark:text-white">Mangoes</td>
+<td class="p-4 text-sm text-primary/80 dark:text-primary/70">Alphonso</td>
+<td class="p-4 text-sm text-primary/80 dark:text-primary/70">100 kg</td>
+<td class="p-4 text-sm text-green-600 font-semibold">Completed</td>
+<td class="p-4 text-right text-sm text-primary/80 dark:text-primary/70">2025-10-23</td>
+</tr>
+<tr>
+<td class="p-4 text-sm font-medium text-black dark:text-white">Rice</td>
+<td class="p-4 text-sm text-primary/80 dark:text-primary/70">Basmati</td>
+<td class="p-4 text-sm text-primary/80 dark:text-primary/70">1000 kg</td>
+<td class="p-4 text-sm text-yellow-500 font-semibold">Pending</td>
+<td class="p-4 text-right text-sm text-primary/80 dark:text-primary/70">2025-10-22</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+</body>
+</html>

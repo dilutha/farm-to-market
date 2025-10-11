@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <svg class="logo" fill="none" viewBox="0 0 48 48">
+                    <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+                </svg>
+                <h1>Farm2Market</h1>
+            </div>
+            <nav class="nav">
+                <a href="#">Home</a>
+                <a href="../Frontend/Browse/Browse_Crops.html">Marketplace</a>
+                <a href="#">Resources</a>
+            </nav>
+            <div class="header-right">
+                <button class="icon-btn">🔔</button>
+                <div class="avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqLfgfu8AXJ1L9wJKeML8y3IxzLcB8ok7jGYcVrHB_-6ZvHx-GbjGDV2itaX_vuux8Q8ffTHe0zlt9RWV5l5r8kSyUgYXej22HmjvEoHWQ2misXXCJsKnp6I7gi2CHSh3Ys_m4Z5p_fwHvbRP31pxeqMbTrwGG_08Q3fOsW8O9__6qFp-IZDgsZC2I9schGQP5kCld9Kqor5pKrNPnfiWLGtxbn9ImRTIH9FgZdtNhtRg1sipM4WjR-3Iatti4L6m4YiHgwbm_psr');"></div>
+            </div>
+        </header>
+
+        <main>
+            <h1 class="page-title">Your Profile</h1>
+
+            <div class="profile-card">
+                <div class="profile-info">
+                    <div class="profile-avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAL4gtshxHMCKBnjQ3226gw7QhGgaP87k7r9Qk3t1M4pjzj6xkoLsymRaJ8YLjRV-cmeZp0PEG-_nDBYDJCzUpQweObffks22j2KCvqpZbhY2Is2RPW_bHNQwzKmyDnZMNZg638TUllip41aCixl0ZskMXJNlEmAGJW09NRsqW_0IBKyBod7sgxg8Rw4QqCNeRUneFBC14nPVLv3fZLQ7zAb0WDhMa-2RWo3yV3UcHZ_aite7DiXS1TIMUvy0klNBoiO7-tZVtJpK4e');"></div>
+                    <div class="profile-text">
+                        <h2>Sanduni Gunawardena</h2>
+                        <p class="muted">sadugune@gmail.com</p>
+                        <p class="muted">+94 71 7809765</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="update-card">
+                <h3>Update Profile</h3>
+                <form>
+                    <div class="form-grid">
+                        <div>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" value="Sanduni Gunawardena">
+                        </div>
+                        <div>
+                            <label for="contact">Contact Number</label>
+                            <input type="tel" id="contact" value="+94 71 7809765">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div>
+                            <label for="new_password">New Password</label>
+                            <input type="password" id="new_password" placeholder="Enter new password">
+                        </div>
+                        <div>
+                            <label for="confirm_password">Confirm New Password</label>
+                            <input type="password" id="confirm_password" placeholder="Confirm new password">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="delete-btn">Delete Account</button>
+                        <button type="submit" class="save-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
