@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Registration</title>
+  <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <h1>Farm2Market</h1>
+      </div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+      </nav>
+      <div class="auth-buttons">
+        <button onclick="window.location.href='login.html';">Sign In</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="registration-box">
+      <div class="text-center">
+        <h2>Create your Farmer Account</h2>
+        <p>Join our network of trusted farmers.</p>
+      </div>
+
+      <form action="#" method="POST">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+
+        <label for="role">Role</label>
+        <input type="text" id="role" name="role" value="Farmer" readonly>
+
+        <button type="submit">Register</button>
+      </form>
+
+      <p class="signup-text">
+        <a href="../Farmer login and register/login.html">Already have an account? Sign in</a>
+      </p>
+    </div>
+  </main>
+</body>
+</html>
