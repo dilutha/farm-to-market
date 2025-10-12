@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriConnect - Add New Product</title>
+    <link rel="stylesheet" href="add_product.css">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Farm2Market</h1>
+            </div>
+            <nav>
+                <a href="#">Dashboard</a>
+                <a href="#">Orders</a>
+                <a href="#" class="active">Products</a>
+            </nav>
+            <div class="user-icons">
+                <button><span class="material-symbols-outlined">notifications</span></button>
+                <div class="avatar" style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuCTryMYjnxpc798R8XnRpPUdX2Y5Wz34_7rVmObqOrShOpCYTUNWDjUbPQtjoVdfhv2L8EhywgyNpeCaBBGXIWXYIfrVMubYC3zWPhHnTmYk5nPKXIQU3ZQgSoluzm1oDdjVX8omX3V_KWMcS6xVzd2bkUSVGciDz0t5IcO985aNDMf9I5NV4hNpUVp17qTGiW5AufWA9mSHHOgM_ACL4FRYNnxTVtUAnBaD7_WIdlyFEcpmbleyz1YE4wLTrrqQ50peuymtuUr6Paj');"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>Add New Product</h2>
+                <p>Fill in the details below to list a new product.</p>
+
+                <form>
+                    <label for="product-name">Product Name</label>
+                    <input type="text" id="product-name" placeholder="e.g., Organic Tomatoes">
+
+                    <label for="description">Description</label>
+                    <textarea id="description" placeholder="Describe the quality, origin, and unique features of your product."></textarea>
+
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option>Select Category</option>
+                        <option>Fruits</option>
+                        <option>Vegetables</option>
+                        <option>Dairy & Eggs</option>
+                        <option>Grains</option>
+                    </select>
+
+                    <label for="variety">Variety</label>
+                    <input type="text" id="variety" placeholder="e.g., Roma, Cherry">
+
+                    <label for="unit-price">Unit Price (Rs.)</label>
+                    <input type="number" id="unit-price" placeholder="e.g., 250">
+
+                    <label for="quantity">Available Quantity</label>
+                    <input type="number" id="quantity" placeholder="e.g., 100">
+
+                    <label for="unit">Unit of Measurement</label>
+                    <select id="unit">
+                        <option>Select Unit</option>
+                        <option>kg</option>
+                        <option>dozen</option>
+                        <option>bunch</option>
+                        <option>item</option>
+                    </select>
+
+                    <label for="certifications">Certifications (Optional)</label>
+                    <input type="text" id="certifications" placeholder="e.g., USDA Organic, Non-GMO">
+
+                    <label>Product Image</label>
+                    <input type="file" id="file-upload">
+
+                    <div class="buttons">
+                        <button type="button" class="cancel">Cancel</button>
+                        <button type="submit" class="save">Save Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
