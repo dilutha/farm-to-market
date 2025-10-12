@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FarmConnect Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>FarmConnect</h1>
+        <p>Farmer Dashboard</p>
+      </div>
+      <nav>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Products</a>
+        <a href="#">Orders</a>
+        <a href="#">Analytics</a>
+        <a href="#">Settings</a>
+      </nav>
+      <div class="help-box">
+        <p class="help-title">Need Help?</p>
+        <p>Contact our support team.</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <header class="header">
+        <div>
+          <h2>Dashboard</h2>
+          <p>Welcome back, Mr. Perera! Here's an overview of your farm's performance.</p>
+        </div>
+        <button class="btn">Add New Product</button>
+      </header>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="card">
+          <p>Total Products Listed</p>
+          <h3>15</h3>
+          <canvas id="productsChart"></canvas>
+        </div>
+        <div class="card">
+          <p>Active Orders</p>
+          <h3>8</h3>
+          <canvas id="ordersChart"></canvas>
+        </div>
+        <div class="card">
+          <p>Revenue (Last 30 Days)</p>
+          <h3>Rs. 25,000</h3>
+          <canvas id="revenueChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Product Listings -->
+      <div class="card full">
+        <h3>Product Listings</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Price (Rs.)</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Organic Rice</td>
+              <td>50 kg</td>
+              <td>150/kg</td>
+              <td><span class="status active">Active</span></td>
+              <td><button class="link-btn">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Fresh Vegetables</td>
+              <td>200 kg</td>
+              <td>80/kg</td>
+              <td><span class="status active">Active</span></td>
+              <td><button class="link-btn">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Fruits</td>
+              <td>100 kg</td>
+              <td>120/kg</td>
+              <td><span class="status inactive">Inactive</span></td>
+              <td><button class="link-btn">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Market Insights -->
+      <div class="insights">
+        <div class="card">
+          <h4>Fair Price Suggestion</h4>
+          <p>Based on market trends, suggested price for Organic Rice is <strong>Rs. 160/kg</strong></p>
+          <button class="link-btn">View Details</button>
+        </div>
+        <div class="card">
+          <h4>Demand Forecast</h4>
+          <p>High demand expected for Fresh Vegetables next week. Consider increasing your listing quantity.</p>
+          <button class="link-btn">View Forecast</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
