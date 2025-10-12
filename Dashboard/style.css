@@ -1,0 +1,192 @@
+body {
+  font-family: 'Work Sans', sans-serif;
+  background-color: #f6f8f6;
+  color: #111;
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #e8f5e9;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #17cf17;
+}
+
+.sidebar-header p {
+  font-size: 14px;
+  color: #555;
+}
+
+.sidebar-nav {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  background-color: #c8e6c9;
+}
+
+#toggleTheme {
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #17cf17;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#toggleTheme:hover {
+  background-color: #139e13;
+}
+
+/* Main Section */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+.main h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.main h3 {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+/* Overview Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card .label {
+  font-size: 14px;
+  color: #555;
+}
+
+.card .value {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+/* Table */
+.table-container {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #e8f5e9;
+  color: #333;
+  font-size: 14px;
+}
+
+td {
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+}
+
+/* Status Colors */
+.status {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.status.active {
+  background-color: #c8e6c9;
+  color: #256029;
+}
+
+.status.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status.banned {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Dark Mode */
+.dark body {
+  background-color: #111;
+  color: #f6f6f6;
+}
+
+.dark .sidebar {
+  background-color: #222;
+  border-color: #333;
+}
+
+.dark .card,
+.dark table {
+  background-color: #222;
+  color: #f6f6f6;
+}
+
+.dark th {
+  background-color: #333;
+  color: #f6f6f6;
+}
