@@ -10,7 +10,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     // Specify the custom table name
-    protected $table = 'User';
+    protected $table = 'users';
     
     // Specify the custom primary key
     protected $primaryKey = 'user_id';

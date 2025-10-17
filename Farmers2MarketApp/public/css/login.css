@@ -1,0 +1,115 @@
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: #f6f8f6;
+    color: #111811;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navigation Colors */
+  .text-primary {
+    color: #15931d;
+  }
+  .bg-primary {
+    background-color: #15931d;
+  }
+  .bg-secondary {
+    background-color: #dce5dc;
+  }
+  .text-accent {
+    color: #111811;
+  }
+  
+  /* Login Page */
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  
+  .login-box {
+    background-color: #ffffff;
+    border: 1px solid #dce5dc;
+    border-radius: 10px;
+    padding: 30px 40px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .login-box h2 {
+    color: #15931d;
+    margin-bottom: 10px;
+  }
+  
+  .login-box p {
+    font-size: 14px;
+    color: #638863;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #a9c7a9;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  input:focus {
+    border-color: #15931d;
+    outline: none;
+  }
+  
+  /* Role selection */
+  .role-select {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+  }
+  
+  .role-select label {
+    font-size: 14px;
+    color: #111811;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #15931d;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #13b013;
+  }
+  
+  .signup-text {
+    font-size: 13px;
+    margin-top: 15px;
+  }
+  
+  .signup-text a {
+    color: #15931d;
+    text-decoration: none;
+  }
+  
+  .signup-text a:hover {
+    text-decoration: underline;
+  }
+  
