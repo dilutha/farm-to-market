@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Buyer</title>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,"/>
+  
+  <link rel="stylesheet" href="buyer.css"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="light">
+<div class="layout">
+  
+  <aside class="sidebar">
+    <div>
+      <div class="brand">
+        <h1>Farm2Market</h1>
+        <p class="role">Buyer</p>
+      </div>
+      <nav class="nav">
+        <a href="#" class="nav-item active">
+          <span class="material-symbols-outlined">dashboard</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="./Browse/Browse_Crops.html" class="nav-item">
+          <span class="material-symbols-outlined">potted_plant</span>
+          <span>Browse Crops</span>
+        </a>
+        <a href="./Orders/orders.html" class="nav-item">
+          <span class="material-symbols-outlined">receipt_long</span>
+          <span>Orders</span>
+        </a>
+        <a href="./Price Alerts/price alert.html" class="nav-item">
+          <span class="material-symbols-outlined">notifications</span>
+          <span>Price Alerts</span>
+        </a>
+      </nav>
+    </div>
+    <nav class="nav">
+      <a href="#" class="nav-item">
+        <span class="material-symbols-outlined">settings</span>
+        <span>Settings</span>
+      </a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <header>
+      <h2>Dashboard</h2>
+      <p>Welcome back! Here's a summary of your recent activity.</p>
+    </header>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Recent Orders</h3>
+        <div class="list">
+          <div class="list-item">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <span>Tomatoes (500 kg)</span>
+            <span class="status pending">Pending</span>
+          </div>
+          <div class="list-item">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <span>Rice (1000 kg)</span>
+            <span class="status completed">Completed</span>
+          </div>
+          <div class="list-item">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <span>Mangoes (100 kg)</span>
+            <span class="status completed">Completed</span>
+          </div>
+        </div>
+        <a href="#" class="link">View All Orders</a>
+      </div>
+
+      <div class="card">
+        <h3>Price Alerts</h3>
+        <div class="list">
+          <div class="list-item">
+            <span class="material-symbols-outlined">trending_up</span>
+            <span>Onions</span>
+            <span class="change negative">-5%</span>
+          </div>
+          <div class="list-item">
+            <span class="material-symbols-outlined">trending_down</span>
+            <span>Potatoes</span>
+            <span class="change positive">+10%</span>
+          </div>
+          <div class="list-item">
+            <span class="material-symbols-outlined">trending_up</span>
+            <span>Garlic</span>
+            <span class="change negative">-7%</span>
+          </div>
+        </div>
+        <a href="#" class="link">Manage Alerts</a>
+      </div>
+
+      <div class="card">
+        <h3>Popular Crops</h3>
+        <div class="list">
+          <div class="list-item">
+            <span class="material-symbols-outlined">local_florist</span>
+            <span>Tomatoes</span>
+            <span class="status info">High Demand</span>
+          </div>
+          <div class="list-item">
+            <span class="material-symbols-outlined">local_florist</span>
+            <span>Cucumbers</span>
+            <span class="status info">Steady</span>
+          </div>
+          <div class="list-item">
+            <span class="material-symbols-outlined">local_florist</span>
+            <span>Green Beans</span>
+            <span class="status info">Increasing</span>
+          </div>
+        </div>
+        <a href="#" class="link">Browse All Crops</a>
+      </div>
+    </div>
+
+    <div class="card table-card">
+      <h3>Recent Activity</h3>
+      <table>
+        <thead>
+          <tr>
+            <th align="left">Crop</th>
+            <th align="left">Variety</th>
+            <th align="left">Quantity</th>
+            <th align="left">Status</th>
+            <th class="text-right">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tomatoes</td>
+            <td>Roma</td>
+            <td>500 kg</td>
+            <td class="status pending">Pending</td>
+            <td class="text-right">2025-10-26</td>
+          </tr>
+          <tr>
+            <td>Cucumbers</td>
+            <td>English</td>
+            <td>300 kg</td>
+            <td class="status completed">Completed</td>
+            <td class="text-right">2025-10-25</td>
+          </tr>
+          <tr>
+            <td>Green Beans</td>
+            <td>Stringless</td>
+            <td>250 kg</td>
+            <td class="status cancelled">Cancelled</td>
+            <td class="text-right">2025-10-24</td>
+          </tr>
+          <tr>
+            <td>Mangoes</td>
+            <td>Alphonso</td>
+            <td>100 kg</td>
+            <td class="status completed">Completed</td>
+            <td class="text-right">2025-10-23</td>
+          </tr>
+          <tr>
+            <td>Rice</td>
+            <td>Basmati</td>
+            <td>1000 kg</td>
+            <td class="status pending">Pending</td>
+            <td class="text-right">2025-10-22</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</body>
+</html>

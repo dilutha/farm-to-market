@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Crops</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    
+    <link rel="stylesheet" href="browse_crops.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="logo">Farm2Market</h1>
+            <aside class="sidebar"></aside>
+            <nav>
+                <a href="../Index.html">Dashboard</a>
+                <a href="#" class="active">Browse Crops</a>
+                <a href="../Orders/orders.html">Orders</a>
+                <a href="../Price Alerts/price alert.html">Price Alerts</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-title">
+            <h2>Browse Crops</h2>
+            <p>Explore a wide variety of crops available from trusted farmers.</p>
+        </section>
+
+        <section class="filters">
+            <button>Crop Type</button>
+            <button>Availability</button>
+            <button>Price Range</button>
+            <button>Sort By: Name</button>
+        </section>
+
+        <section class="crops-grid">
+            <div class="crop-card">
+                <img src="../Pictures/Wheat.jpg" alt="Wheat">
+                <h3>Wheat</h3>
+                <span class="status available">Available</span>
+                <p>Quantity: 500 tons</p>
+                <p>Price: Rs. 200/ton</p>
+                <p>Farmer: Saman</p>
+                <a href="#" class="btn">View Details</a>
+            </div>
+
+            <div class="crop-card">
+                <img src="../Pictures/corn.jpg.webp" alt="Corn">
+                <h3>Corn</h3>
+                <span class="status available">Available</span>
+                <p>Quantity: 300 tons</p>
+                <p>Price: Rs. 150/ton</p>
+                <p>Farmer: Piyal</p>
+                <a href="#" class="btn">View Details</a>
+            </div>
+
+            <div class="crop-card">
+                <img src="../Pictures/soya.jpg" alt="Soybeans">
+                <h3>Soybeans</h3>
+                <span class="status out-of-stock">Out of Stock</span>
+                <p>Quantity: 200 tons</p>
+                <p>Price: Rs. 250/ton</p>
+                <p>Farmer: Kusum</p>
+                <a href="#" class="btn disabled">Out of Stock</a>
+            </div>
+
+            
+        </section>
+    </main>
+</body>
+</html>

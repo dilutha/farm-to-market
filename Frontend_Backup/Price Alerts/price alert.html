@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Price Alerts</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <link rel="stylesheet" href="price alert.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19.998 2.003v1.996h-16v-1.996h16zm-.002 1.996v2.001l-10.003.003v-2.004l10.003-.001zm-10.003 4.004v2.001l10.003-.003v-2.001l-10.003.003zm-5.995 1.998v6.002l10.001-.003v-6.002l-10.001.003zm10.001 8.003v6.001h-10v-6.001h10z"></path>
+        </svg>
+        <h2>Farm2Market</h2>
+      </div>
+      <nav class="navbar">
+        <a href="#">Dashboard</a>
+        <a href="#">Marketplace</a>
+        <a href="#">My Orders</a>
+        <a href="#">My Products</a>
+        <a class="active" href="#">Price Alerts</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1>Price Alerts</h1>
+        <button class="btn-primary">
+          <span class="material-symbols-outlined"> add </span>
+          Add New Alert
+        </button>
+      </div>
+
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Crop</th>
+              <th>Current Price</th>
+              <th>Target Price</th>
+              <th>Status</th>
+              <th>Created At</th>
+              <th class="text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Wheat</td>
+              <td>$250/ton</td>
+              <td>$275/ton</td>
+              <td><span class="badge badge-warning">Pending</span></td>
+              <td>2024-07-26</td>
+              <td class="text-right">
+                <button class="action-btn edit">✏️</button>
+                <button class="action-btn delete">🗑️</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

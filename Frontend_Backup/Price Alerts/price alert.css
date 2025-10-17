@@ -1,0 +1,153 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+}
+
+body {
+  background: #f6f8f6;
+  color: #111;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #15931d;
+}
+
+.logo h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+}
+
+.navbar a.active,
+.navbar a:hover {
+  color: #15931d;
+}
+
+/* Page Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Buttons */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #15931d;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #107115;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background: #f9f9f9;
+  font-weight: 600;
+  color: #333;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Status Badges */
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-warning {
+  background: rgba(255, 193, 7, 0.2);
+  color: #d39e00;
+}
+
+.badge-success {
+  background: rgba(40, 167, 69, 0.2);
+  color: #218838;
+}
+
+.badge-danger {
+  background: rgba(220, 53, 69, 0.2);
+  color: #c82333;
+}
+
+/* Action Buttons */
+.action-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0 5px;
+}
+
+.action-btn.edit {
+  color: #15931d;
+}
+
+.action-btn.delete {
+  color: red;
+}

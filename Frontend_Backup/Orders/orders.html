@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Management</title>
+  <link rel="stylesheet" href="orders.css">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo">
+        <h1 class="logo">Farm2Market</h1>
+      </div>
+      <nav>
+        <a href="../Index.html"><span class="material-symbols-outlined">dashboard</span> Dashboard</a>
+        <a href="../Browse/Browse_Crops.html"><span class="material-symbols-outlined">potted_plant</span> Browse Crops</a>
+        <a href="#" class="active"><span class="material-symbols-outlined">receipt_long</span> Orders</a>
+        <a href="../Payments/Payments.html"><span class="material-symbols-outlined">payments</span> Payments</a>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <header>
+        <div class="user-section">
+          <button class="notif-btn">
+            <span class="material-symbols-outlined">notifications</span>
+          </button>
+          <div class="avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXphozv6G5xJzhktXgTHsLBdq4MXYBEzk4sXaulNU4OzxzW32WpMX8AA0Yv9_jRuuf3pHyqwfwr6TqrVrzLUq3NOFuVulGW9D3niJ4HmwO5p_wsv_maRSv0hbrT513B922aSQswHQ26wKIarUIHZdXNkIkWH7JZIS4MI0wvPi_YpjRsrD2p7eou4pSJD8YWq-57D7asiKO52iemHCBoI683QFfGEraT5GRQgHsC4teMVLwbQwlsfN57C55BIzYTuIzcYZ4YKKx7hZl');"></div>
+        </div>
+      </header>
+
+      <main>
+        <div class="page-header">
+          <h2>Orders</h2>
+          <p>Manage your orders and track their status.</p>
+        </div>
+
+        <div class="filters">
+          <select>
+            <option>All Orders</option>
+            <option>Pending</option>
+            <option>Completed</option>
+            <option>Cancelled</option>
+          </select>
+          <input type="date">
+          <span>-</span>
+          <input type="date">
+          <button>Filter</button>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Buyer/Farmer</th>
+                <th>Crop</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Order Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#12345</td>
+                <td>Noyel Perera</td>
+                <td>Wheat</td>
+                <td>1000 kg</td>
+                <td>Rs. 2,500</td>
+                <td>2025-10-15</td>
+                <td><span class="status completed">Completed</span></td>
+              </tr>
+              <tr>
+                <td>#12346</td>
+                <td>Kamal Mendis</td>
+                <td>Corn</td>
+                <td>500 kg</td>
+                <td>Rs. 1,200</td>
+                <td>2025-10-16</td>
+                <td><span class="status pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>#12347</td>
+                <td>Piyal Sirisena</td>
+                <td>Soybeans</td>
+                <td>750 kg</td>
+                <td>Rs. 1,800</td>
+                <td>2025-10-17</td>
+                <td><span class="status completed">Completed</span></td>
+              </tr>
+              <tr>
+                <td>#12348</td>
+                <td>Hotel Araliya</td>
+                <td>Rice</td>
+                <td>2000 kg</td>
+                <td>Rs. 4,000</td>
+                <td>2025-10-18</td>
+                <td><span class="status cancelled">Cancelled</span></td>
+              </tr>
+              <tr>
+                <td>#12349</td>
+                <td>ABC Pvt Ltd</td>
+                <td>Barley</td>
+                <td>1200 kg</td>
+                <td>Rs. 3,000</td>
+                <td>2025-10-19</td>
+                <td><span class="status pending">Pending</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
