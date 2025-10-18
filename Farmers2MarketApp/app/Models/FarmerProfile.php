@@ -1,18 +1,21 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FarmersProfile extends Model
+class FarmerProfile extends Model
 {
     use HasFactory;
-    
-    protected $table = 'Farmers_Profile'; // Fixed: was 'farmers_profile'
+
+    // Table and primary key
+    protected $table = 'farmer_profiles'; // table name in lowercase
     protected $primaryKey = 'farmer_id';
-    public $incrementing = false;
-    public $timestamps = false; // Your table doesn't have timestamps
-    
+    public $incrementing = false; // user_id is used as PK, set externally
+    public $timestamps = false; // no created_at/updated_at columns in table
+
+    // Mass assignable fields
     protected $fillable = [
         'farmer_id',
         'farmer_code',
@@ -21,14 +24,17 @@ class FarmersProfile extends Model
         'verification_status',
         'status',
     ];
-    
-    // Remove boot() - you have a database trigger for this
-    
-    public function user() {
+
+    /**
+     * Relationships
+     */
+    public function user()
+    {
         return $this->belongsTo(User::class, 'farmer_id', 'user_id');
     }
-    
-    public function crops() {
+
+    public function crops()
+    {
         return $this->hasMany(Crop::class, 'farmer_id', 'farmer_id');
     }
 }

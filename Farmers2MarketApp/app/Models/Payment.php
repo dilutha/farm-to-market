@@ -1,14 +1,12 @@
 <?php
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
-    use HasFactory;
-    
-    protected $table = 'Payment';
+    protected $table = 'payment'; // Specify the correct table name
     protected $primaryKey = 'payment_id';
     
     protected $fillable = [
@@ -16,10 +14,14 @@ class Payment extends Model
         'amount',
         'payment_method',
         'payment_status',
-        'status'
+        'status',
+        'created_at'
     ];
-    
-    public function order() {
-        return $this->belongsTo(Order::class, 'order_id');
+
+    public $timestamps = false; // Since you're manually setting created_at
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_id', 'order_id');
     }
 }
