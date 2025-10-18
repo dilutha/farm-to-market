@@ -7,6 +7,7 @@ use App\Http\Controllers\BuyerDashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\InquiryController;
 
+use App\Http\Controllers\AnalysisController; 
 // ==================
 // Public Pages
 // ==================
@@ -19,7 +20,8 @@ Route::post('/contact', [InquiryController::class, 'submitForm'])->name('contact
 // Marketplace
 // ==================
 Route::get('/market', [MarketController::class, 'index'])->name('market');
-Route::get('/analysis', [MarketController::class, 'index'])->name('analysis');
+Route::get('/analysis', [AnalysisController::class, 'index'])->name('analysis');
+Route::post('/analysis/predict', [AnalysisController::class, 'predict'])->name('analysis.predict');
 
 // ==================
 // Authentication
