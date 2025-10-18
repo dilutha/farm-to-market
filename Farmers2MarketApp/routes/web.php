@@ -61,3 +61,13 @@ Route::middleware('auth')->group(function () {
 // PayHere Callbacks (No Auth Required - for webhook)
 // ==================
 Route::post('/order/notify', [OrderController::class, 'notify'])->name('order.notify');
+
+// ==================
+// Farmer Listing Routes (Authenticated & Role-Based)
+// ==================
+
+use App\Http\Controllers\ListingController;
+Route::middleware(['auth', 'role:Farmer'])->group(function () {
+Route::get('/listing', [ListingController::class, 'index'])-
+>name('listing.index');
+});
