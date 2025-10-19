@@ -1,5 +1,36 @@
-[build]
-builder = "railpack/laravel"
+# ============================================
+# Railway Laravel Build Configuration (Railpack)
+# ============================================
 
-[phpextensions]
-install = ["pdo", "pdo_mysql", "mysqli", "mbstring", "openssl", "tokenizer", "xml", "curl", "ctype", "bcmath"]
+[build]
+# Required PHP extensions for Laravel + MySQL
+php_extensions = [
+  "pdo",
+  "pdo_mysql",
+  "mysqli",
+  "mbstring",
+  "openssl",
+  "tokenizer",
+  "xml",
+  "curl",
+  "ctype",
+  "bcmath"
+]
+
+# Optional: explicitly set versions (Railpack auto-detects but it's safer)
+php_version = "8.2"
+node_version = "22"
+
+# Optional pre-deploy command
+# Runs before your container starts — good for migrations or caching
+pre_deploy = "php artisan migrate --force"
+
+# Optional: post-build optimization (uncomment if needed)
+# post_build = "php artisan config:cache && php artisan route:cache && php artisan view:cache"
+
+# ============================================
+# Notes:
+# - Place this file in your project root (same level as artisan)
+# - Remove or rename Dockerfile/docker-compose.yml if present
+# - Commit this file and push to trigger a new deployment
+# ============================================
