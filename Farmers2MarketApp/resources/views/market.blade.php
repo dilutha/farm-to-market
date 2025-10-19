@@ -19,9 +19,10 @@
     <div id="cropsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         @forelse($crops as $crop)
         <div class="crop-card bg-white dark:bg-gray-800 border rounded-xl overflow-hidden shadow transition">
-            <img src="{{ asset('storage/crops/' . ($crop->image ?? 'default_crop.jpg')) }}"
-                 alt="{{ $crop->crop_name }}"
-                 class="w-full h-40 object-cover">
+        <img src="{{ asset('uploads/crops/' . ($crop->image ?? 'default_crop.jpg')) }}"
+     alt="{{ $crop->crop_name }}"
+     class="w-full h-40 object-cover">
+
             <div class="p-4 flex flex-col gap-2">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ $crop->crop_name }}</h3>
                 <p class="text-gray-700 dark:text-gray-300 text-sm">{{ Str::limit($crop->description ?? 'No description', 80) }}</p>

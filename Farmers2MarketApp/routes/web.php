@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MarketController;
@@ -7,10 +8,10 @@ use App\Http\Controllers\BuyerDashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\FarmerDashboardController;
+use App\Http\Controllers\AnalysisController;
+use App\Http\Controllers\ListingController;
+use App\Http\Controllers\AdminController;  // ADD THIS LINE
 
-
-
-use App\Http\Controllers\AnalysisController; 
 // ==================
 // Public Pages
 // ==================
@@ -31,12 +32,9 @@ Route::post('/analysis/predict', [AnalysisController::class, 'predict'])->name('
 // ==================
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
-
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
-
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
-
 
 // ==================
 // Buyer Dashboard (Authenticated)
@@ -46,8 +44,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/buyer/address/update', [BuyerDashboardController::class, 'updateAddress'])->name('buyer.update.address');
 });
 
-
-
+// ==================
+// Farmer Dashboard
+// ==================
 Route::get('/farmer/dashboard', [FarmerDashboardController::class, 'index'])->name('farmer.dashboard');
 
 // ==================
@@ -75,11 +74,18 @@ Route::post('/order/notify', [OrderController::class, 'notify'])->name('order.no
 // ==================
 // Farmer Listing Routes (Authenticated & Role-Based)
 // ==================
-
-use App\Http\Controllers\ListingController;
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/listing', [ListingController::class, 'index'])->name('farmer.listing');
     Route::post('/listing', [ListingController::class, 'storeCrop'])->name('farmer.store-product');
 });
 
+// ==================
+// Admin Routes (Authenticated)
+// ==================
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/admin/user/verify/{id}', [AdminController::class, 'verifyUser'])->name('admin.user.verify');
+    Route::get('/admin/user/reject/{id}', [AdminController::class, 'rejectUser'])->name('admin.user.reject');
+    Route::get('/admin/crop/verify/{cropId}', [AdminController::class, 'verifyCrop'])->name('admin.crop.verify');
+    Route::get('/admin/crop/reject/{cropId}', [AdminController::class, 'rejectCrop'])->name('admin.crop.reject');
+});
