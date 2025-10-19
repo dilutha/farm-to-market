@@ -2,42 +2,39 @@ version: '3.8'
 
 services:
   app:
-    build:
-      context: .        # <-- THIS MUST BE A STRING, '.' means current folder
-      dockerfile: Dockerfile
-    image: agri-connect-app
-    container_name: agri-connect-app
-    restart: unless-stopped
-    working_dir: /var/www/html
-    volumes:
-      - ./:/var/www/html
-      - ./storage:/var/www/html/storage
+    build: .
     ports:
       - "8000:8000"
     environment:
-      - APP_ENV=local
-      - APP_DEBUG=true
-      - APP_KEY=base64:gn0sQB3tIxr2Rvpa6psfg+2uiGaQXeUCespvxBLQMVc=
-      - DB_CONNECTION=mysql
-      - DB_HOST=db
-      - DB_PORT=3306
-      - DB_DATABASE=Agriconnectnew
-      - DB_USERNAME=root
-      - DB_PASSWORD=password
+      APP_NAME: "AgriConnect"
+      APP_ENV: "production"
+      APP_KEY: "${APP_KEY}"
+      APP_DEBUG: "false"
+      APP_URL: "http://localhost:8000"
+      DB_CONNECTION: "mysql"
+      DB_HOST: "db"
+      DB_PORT: 3306
+      DB_DATABASE: "railway"
+      DB_USERNAME: "root"
+      DB_PASSWORD: "password"
+      MAIL_MAILER: "smtp"
+      MAIL_HOST: "smtp.gmail.com"
+      MAIL_PORT: 587
+      MAIL_USERNAME: "youremail@gmail.com"
+      MAIL_PASSWORD: "your-app-password"
+      MAIL_ENCRYPTION: "tls"
+      MAIL_FROM_ADDRESS: "youremail@gmail.com"
+      MAIL_FROM_NAME: "AgriConnect"
+      PAYHERE_MERCHANT_ID: "123456"
+      PAYHERE_MERCHANT_SECRET: "secret"
+      PAYHERE_SANDBOX: "true"
     depends_on:
       - db
 
   db:
     image: mysql:8.0
-    container_name: agri-connect-db
-    restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: Agriconnectnew
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "railway"
     ports:
-      - "3307:3306"
-    volumes:
-      - dbdata:/var/lib/mysql
-
-volumes:
-  dbdata:
+      - "3306:3306"
