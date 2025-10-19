@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Farmer Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Farmer Registration</h2>
+    <form>
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your name" required>
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" required>
+
+      <label>Contact Number</label>
+      <input type="tel" placeholder="Enter contact number" required>
+
+      
+      <label>Password</label>
+      <input type="password" id="password"
+             placeholder="Create password"
+             pattern="^[A-Z](?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{7,}$"
+             title="Password must start with an uppercase letter, be at least 8 characters long, and include one special character (!@#$%^&*)."
+             required>
+
+      <label>Confirm Password</label>
+      <input type="password" id="confirmPassword" placeholder="Re-enter password" required>
+
+      <small class="hint">* Make sure both passwords match before submitting</small>
+
+      <button type="submit">Register</button>
+      <p>Already have an account? <a href="index.html">Login</a></p>
+    </form>
+  </div>
+</body>
+</html>
