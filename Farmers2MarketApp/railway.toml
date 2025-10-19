@@ -1,0 +1,5 @@
+[build]
+builder = "railpack/laravel"
+
+[phpextensions]
+install = ["pdo", "pdo_mysql", "mysqli", "mbstring", "openssl", "tokenizer", "xml", "curl", "ctype", "bcmath"]
