@@ -1,8 +1,5 @@
-# nixpacks.toml - Laravel 12 with Nginx (Production Ready)
-
 [phases.setup]
 nixPkgs = [
-    'nginx',
     'php82',
     'php82Extensions.pdo',
     'php82Extensions.pdo_mysql',
@@ -17,122 +14,27 @@ nixPkgs = [
     'php82Extensions.ctype',
     'php82Extensions.json',
     'php82Extensions.openssl',
-    'php82Extensions.fpm'
+    'php82Extensions.pcntl',
+    'php82Extensions.posix'
 ]
 
 [phases.install]
 cmds = [
-    'composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist'
+    'composer install --no-dev --optimize-autoloader --no-interaction'
 ]
 
 [phases.build]
 cmds = [
+    'mkdir -p storage/framework/{sessions,views,cache}',
+    'mkdir -p storage/logs',
+    'chmod -R 775 storage bootstrap/cache',
     'php artisan config:clear',
-    'php artisan cache:clear',
-    'php artisan view:clear',
     'php artisan route:clear',
+    'php artisan view:clear',
     'php artisan config:cache',
     'php artisan route:cache',
-    'php artisan view:cache',
-    'php artisan storage:link || true',
-    'chmod -R 775 storage bootstrap/cache'
+    'php artisan view:cache'
 ]
 
 [start]
-cmd = '''
-# Create PHP-FPM configuration
-mkdir -p /tmp/php-fpm
-cat > /tmp/php-fpm.conf << 'PHPFPM'
-[global]
-error_log = /dev/stderr
-daemonize = no
-
-[www]
-user = nobody
-group = nobody
-listen = 127.0.0.1:9000
-pm = dynamic
-pm.max_children = 50
-pm.start_servers = 5
-pm.min_spare_servers = 5
-pm.max_spare_servers = 35
-clear_env = no
-catch_workers_output = yes
-PHPFPM
-
-# Create Nginx configuration
-cat > /tmp/nginx.conf << 'NGINX'
-worker_processes auto;
-daemon off;
-error_log stderr;
-pid /tmp/nginx.pid;
-
-events {
-    worker_connections 1024;
-}
-
-http {
-    access_log /dev/stdout;
-    client_body_temp_path /tmp/client_body;
-    fastcgi_temp_path /tmp/fastcgi_temp;
-    proxy_temp_path /tmp/proxy_temp;
-    scgi_temp_path /tmp/scgi_temp;
-    uwsgi_temp_path /tmp/uwsgi_temp;
-
-    include /etc/nginx/mime.types;
-    default_type application/octet-stream;
-    sendfile on;
-    keepalive_timeout 65;
-    client_max_body_size 10M;
-
-    server {
-        listen ${PORT};
-        server_name _;
-        root /app/public;
-        index index.php index.html;
-
-        # Security headers
-        add_header X-Frame-Options "SAMEORIGIN" always;
-        add_header X-Content-Type-Options "nosniff" always;
-        add_header X-XSS-Protection "1; mode=block" always;
-
-        # Main location
-        location / {
-            try_files $uri $uri/ /index.php?$query_string;
-        }
-
-        # PHP-FPM configuration
-        location ~ \.php$ {
-            fastcgi_split_path_info ^(.+\.php)(/.+)$;
-            fastcgi_pass 127.0.0.1:9000;
-            fastcgi_index index.php;
-            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-            fastcgi_param PATH_INFO $fastcgi_path_info;
-            fastcgi_buffers 16 16k;
-            fastcgi_buffer_size 32k;
-            include fastcgi_params;
-        }
-
-        # Deny access to hidden files
-        location ~ /\. {
-            deny all;
-        }
-
-        # Deny access to sensitive files
-        location ~* \.(env|log|htaccess)$ {
-            deny all;
-        }
-
-        # Cache static files
-        location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2|ttf|eot)$ {
-            expires 1y;
-            add_header Cache-Control "public, immutable";
-        }
-    }
-}
-NGINX
-
-# Start PHP-FPM and Nginx
-php-fpm82 -F -y /tmp/php-fpm.conf &
-nginx -c /tmp/nginx.conf
-'''
+cmd = 'php artisan octane:start --server=roadrunner --host=0.0.0.0 --port=$PORT --workers=4 --max-requests=500'
