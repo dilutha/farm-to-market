@@ -1,9 +1,7 @@
-# ============================================
-# Railway Laravel Build Configuration (Railpack)
-# ============================================
+# Railway Laravel build configuration (for Railpack)
 
 [build]
-# Required PHP extensions for Laravel + MySQL
+# PHP Extensions you want to include
 php_extensions = [
   "pdo",
   "pdo_mysql",
@@ -14,23 +12,14 @@ php_extensions = [
   "xml",
   "curl",
   "ctype",
-  "bcmath"
+  "bcmath",
+  "fileinfo"
 ]
 
-# Optional: explicitly set versions (Railpack auto-detects but it's safer)
+# Set PHP and Node versions explicitly
 php_version = "8.2"
 node_version = "22"
 
-# Optional pre-deploy command
-# Runs before your container starts — good for migrations or caching
+# Pre-deploy command (optional)
+# This runs before starting your container
 pre_deploy = "php artisan migrate --force"
-
-# Optional: post-build optimization (uncomment if needed)
-# post_build = "php artisan config:cache && php artisan route:cache && php artisan view:cache"
-
-# ============================================
-# Notes:
-# - Place this file in your project root (same level as artisan)
-# - Remove or rename Dockerfile/docker-compose.yml if present
-# - Commit this file and push to trigger a new deployment
-# ============================================
