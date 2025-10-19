@@ -50,7 +50,7 @@ class ListingController extends Controller
             $filename = Str::slug($request->crop_name) . '_' . time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads/crops'), $filename);
         } else {
-            $filename = 'default_crop.jpg';
+            $filename = 'Farmers2MarketApp/public/storage/crops/default_crop.jpg';
         }
 
         // Create crop
