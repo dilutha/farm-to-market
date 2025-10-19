@@ -3,13 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use App\Models\OrderItem;
 
 class Crop extends Model
 {
     protected $table = 'crop';
     protected $primaryKey = 'crop_id';
-    public $timestamps = false;
-    
+    public $timestamps = true;
+
     protected $fillable = [
         'farmer_id',
         'crop_name',
@@ -17,14 +19,15 @@ class Crop extends Model
         'quantity_available',
         'price',
         'image',
-        'status',
-        'created_at'
+        'status'
     ];
 
     protected $casts = [
         'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
+    // Relationships
     public function farmer()
     {
         return $this->belongsTo(User::class, 'farmer_id', 'user_id');

@@ -9,11 +9,17 @@ class FarmerProfile extends Model
 {
     use HasFactory;
 
-    // Table and primary key
-    protected $table = 'farmer_profiles'; // table name in lowercase
+    // Match table name in DB
+    protected $table = 'farmers_profile';
+
+    // Primary key column
     protected $primaryKey = 'farmer_id';
-    public $incrementing = false; // user_id is used as PK, set externally
-    public $timestamps = false; // no created_at/updated_at columns in table
+
+    // If not auto-incrementing (because it’s linked to users.user_id)
+    public $incrementing = false;
+
+    // Primary key type
+    protected $keyType = 'int';
 
     // Mass assignable fields
     protected $fillable = [
@@ -21,20 +27,13 @@ class FarmerProfile extends Model
         'farmer_code',
         'location',
         'farm_size',
-        'verification_status',
-        'status',
     ];
 
     /**
-     * Relationships
+     * Relationship: each farmer profile belongs to one user
      */
     public function user()
     {
         return $this->belongsTo(User::class, 'farmer_id', 'user_id');
-    }
-
-    public function crops()
-    {
-        return $this->hasMany(Crop::class, 'farmer_id', 'farmer_id');
     }
 }

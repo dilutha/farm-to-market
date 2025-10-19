@@ -4,62 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class AuthController extends Controller
 {
-    /**
-     * Show login form
-     */
+    // Show forms
+    public function showRegisterForm()
+    {
+        return view('register'); // radio buttons: Farmer, Buyer
+    }
+
     public function showLoginForm()
     {
         return view('login');
     }
 
-    /**
-     * Handle login
-     */
-    public function login(Request $request)
-    {
-    $request->validate([
-        'email' => 'required|email',
-        'password' => 'required'
-    ]);
-
-    if (Auth::attempt($request->only('email', 'password'))) {
-        $request->session()->regenerate();
-        $user = Auth::user();
-
-        
-        if ($user->role === 'Buyer') {
-            return redirect()->route('buyer.dashboard')->with('success', 'Welcome back, ' . $user->name . '!');
-        } elseif ($user->role === 'Farmer') {
-            return redirect()->route('farmerdashboard'); // Create this route later
-        } elseif ($user->role === 'Admin') {
-            return redirect()->route('admindashboard'); // Create this route later
-        }
-
-        return redirect('/'); // fallback
-    }
-
-    return back()->withErrors([
-        'email' => 'Invalid email or password.',
-    ]);
-}
-
-
-    /**
-     * Show registration form
-     */
-    public function showRegisterForm()
-    {
-        return view('register');
-    }
-
-    /**
-     * Handle registration
-     */
+    // Register
     public function register(Request $request)
     {
         $validated = $request->validate([
@@ -68,7 +28,6 @@ class AuthController extends Controller
             'password' => 'required|confirmed|min:6',
             'role' => 'required|in:Farmer,Buyer,Admin',
             'contact_no' => 'nullable|string',
-           
             'location' => 'nullable|string',
             'farm_size' => 'nullable|numeric',
             'company_name' => 'nullable|string',
@@ -76,37 +35,58 @@ class AuthController extends Controller
             'designation' => 'nullable|string',
         ]);
 
-        // Create the user
+        // Create user
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'password' => bcrypt($validated['password']),
+            'password' => $validated['password'],
             'role' => $validated['role'],
             'contact_no' => $validated['contact_no'] ?? null,
             'status' => 'Active',
         ]);
 
-        // Automatically create profile based on role
-        $user->createProfile($request->only([
-            'location', 'farm_size', 'company_name', 'address', 'designation'
-        ]));
+        // Create role profile
+        $user->createProfile($validated);
 
-        // Login the user immediately
+        // Login and redirect
         Auth::login($user);
 
-        return redirect()->route('dashboard')->with('success', 'Account created successfully!');
+        return match($user->role) {
+            'Farmer' => redirect()->route('farmer.dashboard')->with('success', 'Welcome, '.$user->name),
+            'Buyer'  => redirect()->route('buyer.dashboard')->with('success', 'Welcome, '.$user->name),
+            'Admin'  => redirect()->route('admin.dashboard')->with('success', 'Welcome, '.$user->name),
+        };
     }
 
-    /**
-     * Logout
-     */
+    // Login
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email'=>'required|email',
+            'password'=>'required'
+        ]);
+
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+            $user = Auth::user();
+            return match($user->role) {
+                'Farmer' => redirect()->route('farmer.dashboard')->with('success', 'Welcome back, '.$user->name),
+                'Buyer'  => redirect()->route('buyer.dashboard')->with('success', 'Welcome back, '.$user->name),
+                'Admin'  => redirect()->route('admin.dashboard')->with('success', 'Welcome back, '.$user->name),
+            };
+        }
+
+        return back()->withErrors([
+            'email' => 'Invalid credentials.',
+        ])->withInput();
+    }
+
+    // Logout
     public function logout(Request $request)
     {
         Auth::logout();
-
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
-        return redirect('/')->with('success', 'Logged out successfully.');
+        return redirect('/')->with('success','Logged out successfully.');
     }
 }
