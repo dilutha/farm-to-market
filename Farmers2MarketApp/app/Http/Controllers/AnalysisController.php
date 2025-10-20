@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\Cache;
 
 class AnalysisController extends Controller
 {
-    
+    /**
+     * Show the analysis page with available crops
+     */
     public function index() 
     {
         try {
             $crops = Cache::remember('available_crops', 3600, function () {
-                $response = Http::timeout(10)->get('http://127.0.0.1:8001/crops');
+                $response = Http::timeout(10)->get('http://127.0.0.1:8001/crops'); // <-- LOCALHOST
                 if ($response->successful()) {
                     return $response->json()['crops'] ?? [];
                 }
@@ -22,12 +24,16 @@ class AnalysisController extends Controller
             });
         } catch (\Exception $e) {
             Log::error('Failed to fetch crops', ['error' => $e->getMessage()]);
+            // fallback crops
             $crops = ['rambutan', 'potato', 'beetroot', 'carrot', 'pumpkin', 'mango', 'banana'];
         }
         
         return view('analysis', compact('crops'));
     }
 
+    /**
+     * Send prediction request to ML service
+     */
     public function predict(Request $request) 
     {
         $validated = $request->validate([
@@ -38,7 +44,7 @@ class AnalysisController extends Controller
         try {
             Log::info('Starting prediction request', $validated);
             
-            // Increase timeout to 90 seconds
+            // Send request to FastAPI ML service (localhost)
             $response = Http::timeout(90)->post('http://127.0.0.1:8001/predict', [
                 'crop' => $validated['crop'],
                 'days' => (int) $validated['days'],
@@ -77,7 +83,7 @@ class AnalysisController extends Controller
             return response()->json([
                 'success' => false,
                 'error' => 'Cannot connect to prediction service',
-                'message' => 'Make sure FastAPI is running on port 8001'
+                'message' => 'Make sure FastAPI ML service is running on port 8001'
             ], 500);
         } catch (\Exception $e) {
             Log::error('Prediction failed', ['error' => $e->getMessage()]);
