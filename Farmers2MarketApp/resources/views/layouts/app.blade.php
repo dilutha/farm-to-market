@@ -34,6 +34,7 @@
             }
         }
     </script>
+
     <style>
         body { font-family: 'Work Sans', sans-serif; }
     </style>
@@ -43,14 +44,16 @@
 <div class="flex flex-col min-h-screen">
     <!-- Navbar -->
     <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Logo -->
             <a class="flex items-center gap-3" href="{{ route('home') }}">
-                <svg class="h-8 w-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                <svg class="h-6 w-6 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                     <path clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10..." fill-rule="evenodd"></path>
                 </svg>
-                <span class="text-2xl font-bold">AgriConnect</span>
+                <span class="text-2xl font-bold leading-none">AgriConnect</span>
             </a>
 
+            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="{{ route('home') }}" class="hover:text-primary transition">Home</a>
                 <a href="{{ route('about') }}" class="hover:text-primary transition">About</a>
@@ -62,11 +65,10 @@
             <!-- Auth Buttons -->
             <div class="hidden md:flex items-center space-x-4">
                 @guest
-                    <a href="{{ route('login') }}" class="px-6 py-2 rounded-full border hover:bg-primary/10 transition font-semibold">Login</a>
-                    <a href="{{ route('register') }}" class="px-6 py-2 rounded-full text-white bg-primary hover:bg-opacity-90 transition font-semibold shadow">Sign Up</a>
+                    <a href="{{ route('login') }}" class="px-5 py-2 rounded-full border hover:bg-primary/10 transition font-semibold">Login</a>
+                    <a href="{{ route('register') }}" class="px-5 py-2 rounded-full text-white bg-primary hover:bg-opacity-90 transition font-semibold shadow">Sign Up</a>
                 @else
                     @php
-                        // Determine dashboard route based on user role
                         $dashboardRoute = match(auth()->user()->role) {
                             'Buyer' => 'buyer.dashboard',
                             'Farmer' => 'farmer.dashboard',
@@ -74,14 +76,40 @@
                             default => 'home',
                         };
                     @endphp
-                    <a href="{{ route($dashboardRoute) }}" class="px-6 py-2 rounded-full border hover:bg-primary/10 transition font-semibold">Dashboard</a>
+                    <a href="{{ route($dashboardRoute) }}" class="px-5 py-2 rounded-full border hover:bg-primary/10 transition font-semibold">Dashboard</a>
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
-                        <button type="submit" class="px-6 py-2 rounded-full text-white bg-primary hover:bg-opacity-90 transition font-semibold shadow">Logout</button>
+                        <button type="submit" class="px-5 py-2 rounded-full text-white bg-primary hover:bg-opacity-90 transition font-semibold shadow">Logout</button>
                     </form>
                 @endguest
             </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                <svg class="h-6 w-6 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
         </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-background-light dark:bg-background-dark border-t border-border-light dark:border-border-dark">
+            <a href="{{ route('home') }}" class="block px-6 py-3 hover:bg-primary/10 transition">Home</a>
+            <a href="{{ route('about') }}" class="block px-6 py-3 hover:bg-primary/10 transition">About</a>
+            <a href="{{ route('market') }}" class="block px-6 py-3 hover:bg-primary/10 transition">Market</a>
+            <a href="{{ route('contact') }}" class="block px-6 py-3 hover:bg-primary/10 transition">Contact</a>
+            <a href="{{ route('analysis') }}" class="block px-6 py-3 hover:bg-primary/10 transition">Analysis</a>
+            @guest
+                <a href="{{ route('login') }}" class="block px-6 py-3 hover:bg-primary/10 transition">Login</a>
+                <a href="{{ route('register') }}" class="block px-6 py-3 text-white bg-primary hover:bg-opacity-90 transition text-center">Sign Up</a>
+            @else
+                <a href="{{ route($dashboardRoute) }}" class="block px-6 py-3 hover:bg-primary/10 transition">Dashboard</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="w-full px-6 py-3 text-white bg-primary hover:bg-opacity-90 transition">Logout</button>
+                </form>
+            @endguest
+        </div>
     </header>
 
     <!-- Content Section -->
@@ -96,5 +124,15 @@
 </div>
 
 @stack('scripts')
+<script>
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if(menuBtn){
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+</script>
 </body>
 </html>
