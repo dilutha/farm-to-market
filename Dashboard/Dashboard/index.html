@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AgriConnect Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>AgriConnect</h1>
+        <p>Admin Dashboard</p>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="active"><span class="material-symbols-outlined">group</span> Users</a>
+        <a href="#"><span class="material-symbols-outlined">eco</span> Crops</a>
+        <a href="#"><span class="material-symbols-outlined">gavel</span> Disputes</a>
+        <a href="#"><span class="material-symbols-outlined">bar_chart</span> Reports</a>
+        <a href="#"><span class="material-symbols-outlined">settings</span> Settings</a>
+      </nav>
+      <button id="toggleTheme">🌙 Dark Mode</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <h2>Dashboard</h2>
+
+      <h3>Overview</h3>
+      <div class="cards">
+        <div class="card">
+          <p class="label">Active Farmers</p>
+          <p class="value">1,250</p>
+        </div>
+        <div class="card">
+          <p class="label">Buyers</p>
+          <p class="value">875</p>
+        </div>
+        <div class="card">
+          <p class="label">Recent Disputes</p>
+          <p class="value">5</p>
+        </div>
+        <div class="card">
+          <p class="label">Most Traded Crops</p>
+          <p class="value">Wheat, Corn, Soybeans</p>
+        </div>
+      </div>
+
+      <h3>Recent Users</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Liam Carter</td>
+              <td>liam.carter@example.com</td>
+              <td>Farmer</td>
+              <td><span class="status active">Active</span></td>
+            </tr>
+            <tr>
+              <td>Olivia Bennett</td>
+              <td>olivia.bennett@example.com</td>
+              <td>Buyer</td>
+              <td><span class="status active">Active</span></td>
+            </tr>
+            <tr>
+              <td>Ethan Harper</td>
+              <td>ethan.harper@example.com</td>
+              <td>Farmer</td>
+              <td><span class="status pending">Pending</span></td>
+            </tr>
+            <tr>
+              <td>Ava Foster</td>
+              <td>ava.foster@example.com</td>
+              <td>Buyer</td>
+              <td><span class="status active">Active</span></td>
+            </tr>
+            <tr>
+              <td>Noah Reed</td>
+              <td>noah.reed@example.com</td>
+              <td>Farmer</td>
+              <td><span class="status banned">Banned</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
